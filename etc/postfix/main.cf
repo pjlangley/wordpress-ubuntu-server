@@ -37,5 +37,15 @@ relayhost =
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_size_limit = 0
 recipient_delimiter = +
-inet_interfaces = all
+inet_interfaces = localhost
 inet_protocols = all
+
+# Below settings block is straight from:
+# askubuntu.com/questions/418340/how-to-secure-postfix-on-ubuntu-server
+default_process_limit = 100
+smtpd_client_connection_count_limit = 10
+smtpd_client_connection_rate_limit = 30
+queue_minfree = 20971520
+header_size_limit = 51200
+message_size_limit = 10485760
+smtpd_recipient_limit = 100
